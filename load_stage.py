@@ -1,13 +1,18 @@
 from omni.isaac.kit import SimulationApp
 import omni
 
+import os
+
+# Change the directory to the folder where this script is located
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 # Configuration for the simulation application
 CONFIG = {"width": 1280, "height": 720, "sync_loads": True, "headless": False, "renderer": "RayTracedLighting"}
 
 # Initialize the simulation application
 kit = SimulationApp(launch_config=CONFIG)
 
-usd_path = 'unittree-go2-scene/simple.usd'
+usd_path = 'simple.usd'
 
 # Load the USD stage
 omni.usd.get_context().open_stage(usd_path)
